@@ -168,24 +168,72 @@
             //preparação dos dados para envio para o back-end
             //envio dos dados do formulario de login
             $('#btnEntrar').click(function(e) {
+<<<<<<< HEAD
+                let formLogin = document.querySelector("#formLogin");
+                if (formLogin.checkValidity()) {
+=======
                 let formLogin= document.querySelector("#formLogin");
                 if(formLogin.checkValidity()){
+>>>>>>> 46c744a48c73f1b0a73f3f71a37d0969be56b9ae
                     e.preventDefault();
                     $.ajax({
                         url: 'recebe.php',
                         method: 'post',
+<<<<<<< HEAD
+                        data: $('#formLogin').serialize() + '&action+login',
+                        success: function(resposta) {
+                            $('#alerta').show();
+                            $('#resultado').html("resposta:" + resposta);
+=======
                         data: $('#formLogin').serialize()+'&action+login',
                         success: function(resposta){
                             $('#alerta').show();
                             $('#resultado').html("resposta:"+resposta);
+>>>>>>> 46c744a48c73f1b0a73f3f71a37d0969be56b9ae
                         }
                     });
                 }
             });
 
+<<<<<<< HEAD
+            $('#btnRegistrar').click(function(e) {
+                let formCadastro = document.querySelector("#formCadastro")
+                if (formCadastro.checkValidity()) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: 'recebe.php',
+                        method: 'post',
+                        data: $('formCadastro').serialize() + '&action+login',
+                        success: function(resposta) {
+                            $('#alerta').show();
+                            $('#resultado').html("resposta:" + resposta);
+
+                        }
+                    })
+                }
+            });
+
+            $('#btnEnviarEmail').click(function(e) {
+                let formSenha = document.querySelector("#formSenha")
+                if (formSenha.checkValidity()) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: 'recebe.php',
+                        method: 'post',
+                        data: $('formSenha').serialize() + '&action+email',
+                        success: function(resposta) {
+                            $('#alerta').show();
+                            $('#resultado').html("resposta:" + resposta);
+
+                        }
+                    })
+                }
+            });
+=======
             $('btnRegistrar').click(function(e) {});
 
             $('btnEnviarEmail').click(function(e) {});
+>>>>>>> 46c744a48c73f1b0a73f3f71a37d0969be56b9ae
 
             //Trocar da Tela de Login para Recuperar Senha
             $("#btnEsqueci").click(function() {
