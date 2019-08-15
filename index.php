@@ -37,7 +37,7 @@
         <section class="row mb-5">
             <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaLogin">
                 <h2 class="text-center mt-2">Entrada no sistema</h2>
-                <form action="#" id="formLogin" class="p-2">
+                <form id="formLogin" class="p-2">
 
                     <div class="form-group">
                         <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control" placeholder="Nome do usuário" minlength="5" required>
@@ -165,6 +165,27 @@
     <script>
         /* jQuery */
         $(function() {
+            //preparação dos dados para envio para o back-end
+            //envio dos dados do formulario de login
+            $('#btnEntrar').click(function(e) {
+                let formLogin= document.querySelector("#formLogin");
+                if(formLogin.checkValidity()){
+                    e.preventDefault();
+                    $.ajax({
+                        url: 'recebe.php',
+                        method: 'post',
+                        data: $('#formLogin').serialize()+'&action+login',
+                        success: function(resposta){
+                            $('#alerta').show();
+                            $('#resultado').html("resposta:"+resposta);
+                        }
+                    });
+                }
+            });
+
+            $('btnRegistrar').click(function(e) {});
+
+            $('btnEnviarEmail').click(function(e) {});
 
             //Trocar da Tela de Login para Recuperar Senha
             $("#btnEsqueci").click(function() {
