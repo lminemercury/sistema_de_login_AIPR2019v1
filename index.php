@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION['nomeUsuario']))
+        header("location: profile.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -150,7 +157,7 @@
                         success: function(resposta) {
                             $('#alerta').show();
                             $('#resultado').html(resposta);
-                            if(resposta == "ok"){
+                            if(resposta === "ok"){
                                 window.location = "profile.php";
                             }
                         }
