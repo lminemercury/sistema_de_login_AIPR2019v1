@@ -1,8 +1,10 @@
 <?php
-require_once 'session.php'
+//Protegendo profile.php só para usuários logados
+require_once 'session.php';
 ?>
+
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <!-- Required meta tags -->
@@ -16,8 +18,9 @@ require_once 'session.php'
 </head>
 
 <body class="bg-dark">
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Lmine systems</a>
+        <a class="navbar-brand" href="#">Lmine Systems</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,25 +30,32 @@ require_once 'session.php'
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">Link 1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="#">Link 2</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?= $usuario ?><? </a> <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <?= $usuario ?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Configurações</a>
-                        <a class="dropdown-item" href="sair.php">sair</a>
-                        <a class="dropdown-item" href="#">link 3</a>
-        </div>
-        </li>
-        </ul>
+                        <a class="dropdown-item" href="sair.php">Sair</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
-    <main>
+
+    <main class="container mt-4">
         <h1 class="text-light">Perfil de usuário</h1>
+        <h2 class="text-light">Nome: <?= $nome ?></h2>
+        <h2 class="text-light">E-mail: <?= $email ?></h2>
+        <h2 class="text-light">Data de Cadastro: <?= $dataCriacao ?></h2>
     </main>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
