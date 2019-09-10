@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if (isset($_SESSION['nomeUsuario']))
     //Bloqueando usuários logados    
@@ -16,7 +15,7 @@ if (isset($_SESSION['nomeUsuario']))
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
     <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
-    <title>Sistema de Login Sistemas Lmine</title>
+    <title>Sistema de Login Sistemas Lminemercury</title>
     <style>
         #caixaCadastro,
         #caixaRecuperarSenha,
@@ -98,7 +97,7 @@ if (isset($_SESSION['nomeUsuario']))
                     </div>
 
                     <div class="form-group">
-                        <input type="url" name="url" id="url" class="form-control" placeholder="URL Imagem de Perfil">
+                        <input type="url" name="urlAvatar" id="urlAvatar" class="form-control" placeholder="URL para imagem do seu perfil" required>
                     </div>
 
                     <div class="form-group">
@@ -108,7 +107,6 @@ if (isset($_SESSION['nomeUsuario']))
                     <div class="form-group">
                         <input type="password" name="senhaConfirma" id="senhaConfirma" class="form-control" placeholder="Confirme a sua senha" required minlength="6">
                     </div>
-
 
                     <div class="form-group mt-5">
                         <div class="custom-control custom-checkbox">
