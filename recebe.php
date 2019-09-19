@@ -22,9 +22,15 @@ if (
     if($resultado->num_rows > 0){
        // echo '<p class="text-success">email encontrado</p>';
     $frase = "callMyByYourname";
-    $frase_secreta str_shuffle($frase);
+    $frase_secreta = str_shuffle($frase);
     $token = substr($frase_secreta,0,10);
-    echo "<p>$token<?p>"
+    //echo "<p>$token<?p>";
+    $sql = $conecta->prepare("UPDATE usuario set token = ?, tempo_De_vida = DATE_ADD(NOW(), INTERVAL 1 MINUTE) WHERE email = ?");
+    $sql->bind_param("ss",$token, $emailSenha);
+    $sql->execute();
+
+    $link = "<a href=\"gerar_senha.php?token=$token\">Clique aqui para gerar nova uma nova senha</a>";
+    echo $link;
     }else{
         echo '<p class="text-danger">email Não encontrado</p>';
     }
