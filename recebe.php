@@ -12,6 +12,25 @@ function verificar_entrada($entrada)
 }
 if (
     isset($_POST['action']) &&
+    $_POST['action'] == 'senha'
+){
+    $emailSenha = verificar_entrada($_POST['emailSenha']);
+    $sql = $conecta->prepare("SELECT idUsuario FROM usuario where email = ?");
+    $sql->bind_param("s", $emailSenha);
+    $sql->execute();
+    $resultado = $sql->get_result();
+    if($resultado->num_rows > 0){
+       // echo '<p class="text-success">email encontrado</p>';
+    $frase = "callMyByYourname";
+    $frase_secreta str_shuffle($frase);
+    $token = substr($frase_secreta,0,10);
+    echo "<p>$token<?p>"
+    }else{
+        echo '<p class="text-danger">email Não encontrado</p>';
+    }
+}
+else if (
+    isset($_POST['action']) &&
     $_POST['action'] == 'login'
 ) {
     //Verificação e Login do usuário
